@@ -1,6 +1,6 @@
 /** Test cases for functions defined in contacts.h
 @file contacts_test.cpp
-@author YOUR NAME HERE
+@author Angel Fuentes
 */
 
 #include "contacts.h"
@@ -12,33 +12,34 @@ using namespace std;
 
 TEST(ContactsTest, LookupTests) {
   // Vector of contact info, to be used by all test cases in this section
+  // TODO: Fill this.
   vector<vector<string>> contacts = {
-      {"Alice", "123 Main Street", "(123)456-7890", "alice@fakeemail.com"},
-      {"Bob", "1111 Blahblahblah Road", "(999)999-9999", "bob@fakeemail.com"},
-      {"Carly", "999 University Ave", "(200)300-4000", "carly@fakeemail.com"},
+
+      {"Chris", "123 Fair Road", "(111) 689-8744", "Jerry@fakeemail.com"},
+      {"Daniel", "444 Duke Street", "(999)999-9999", "Sam@fakeemail.com"},
   };
 
   // 3 test cases for lookup_index()
-  string name1 = "Alice";
+  string name1 = "Chris";
   int expected_index1 = 0;
   bool expected_lookup_info1 = true;
-  string expected_address1 = "123 Main Street";
-  string expected_phone1 = "(123)456-7890";
-  string expected_email1 = "alice@fakeemail.com";
+  string expected_address1 = "123 Fair Road";
+  string expected_phone1 = "(111) 689-8744";
+  string expected_email1 = "Jerry@fakeemail.com";
 
-  string name2 = "Drew";
-  int expected_index2 = -1;
-  bool expected_lookup_info2 = false;
-  string expected_address2 = "";
-  string expected_phone2 = "";
-  string expected_email2 = "";
+  string name2 = "Daniel";
+  int expected_index2 = 1;
+  bool expected_lookup_info2 = true;
+  string expected_address2 = "444 Duke Street";
+  string expected_phone2 = "(999)999-9999";
+  string expected_email2 = "Sam@fakeemail.com";
 
-  string name3 = "Carly";
-  int expected_index3 = 2;
-  bool expected_lookup_info3 = true;
-  string expected_address3 = "999 University Ave";
-  string expected_phone3 = "(200)300-4000";
-  string expected_email3 = "carly@fakeemail.com";
+  string name3 = "Elon";
+  int expected_index3 = -1;
+  bool expected_lookup_info3 = false;
+  string expected_address3 = "";
+  string expected_phone3 = "";
+  string expected_email3 = "";
 
   // Don't change this code
   EXPECT_EQ(lookup_index(contacts, name1), expected_index1);
@@ -53,23 +54,27 @@ TEST(ContactsTest, LookupTests) {
 }
 
 TEST(ContactsTest, UpdateTests) {
+  // TODO: Fill this out with a starting state for the contacts list.
   vector<vector<string>> contacts = {
-      {"Alice", "123 Main Street", "(123)456-7890", "alice@fakeemail.com"},
-      {"Bob", "1111 Blahblahblah Road", "(999)999-9999", "bob@fakeemail.com"},
-      {"Carly", "999 University Ave", "(200)300-4000", "carly@fakeemail.com"},
+      {"Andrew", "123 Cool Street", "(787)787-5656", "andrew@fakeemail.com"},
+      {"Blake", "1111 Rare Road", "(989)678-9566", "blake@fakeemail.com"},
+      {"Craig", "799 Bear Street", "(989)888-7878", "craig@fakeemail.com"},
   };
 
   // Call the update_address(), update_phone(), and update_email() functions.
-  update_address(contacts, "Alice", "321 Rodeo Drive");
-  update_phone(contacts, "Bob", "(888)888-8888");
-  update_email(contacts, "Carly", "carly@fakeemail.com");
-  update_phone(contacts, "Drew", "(777)777-7777");
-  update_address(contacts, "Alice", "444 Rodeo Ave");
+  // TODO: Make 5 or more function calls (at least once each).
+  update_address(contacts, "Andrew", "128 Lain Street");
+  update_phone(contacts, "Andrew", "(787)899-3422");
+  update_email(contacts, "Blake", "blakerules@fakeemail.com");
+  update_address(contacts, "Craig", "897 Front Street");
+  update_phone(contacts, "Craig", "(787)893-2234");
+  // TODO: Don't forget to add at least 2 more function calls.
 
+  // TODO: Fill this out with the expected final state of the contacts list.
   vector<vector<string>> expected_contacts = {
-      {"Alice", "444 Rodeo Ave", "(123)456-7890", "alice@fakeemail.com"},
-      {"Bob", "1111 Blahblahblah Road", "(888)888-8888", "bob@fakeemail.com"},
-      {"Carly", "999 University Ave", "(200)300-4000", "carly@fakeemail.com"},
+      {"Andrew", "128 Lain Street", "(787)899-3422", "andrew@fakeemail.com"},
+      {"Blake", "1111 Rare Road", "(989)678-9566", "blakerules@fakeemail.com"},
+      {"Craig", "897 Front Street", "(787)893-2234", "craig@fakeemail.com"},
   };
 
   // Do not change this code
@@ -77,44 +82,46 @@ TEST(ContactsTest, UpdateTests) {
 }
 
 TEST(ContactsTest, AddContactTest) {
+  // TODO: Fill this out with a starting state for the contacts list.
   vector<vector<string>> contacts = {
-      {"Alice", "123 Main Street", "(123)456-7890", "alice@fakeemail.com"},
-      {"Bob", "1111 Blahblahblah Road", "(999)999-9999", "bob@fakeemail.com"},
-      {"Carly", "999 University Ave", "(200)300-4000", "carly@fakeemail.com"},
+      {"Alex", "400 Serial Street", "(232)131-1331", "alex@fakeemail.com"},
+      {"Bryan", "923 Rare Road", "(949)787-1414", "bryan@fakeemail.com"},
   };
 
+  // TODO: Fill these.
   // add_contact() will be called with this the 1st time:
-  string name1 = "Drew";
-  string address1 = "888 Lucky Street";
-  string phone1 = "(444)444-4444";
-  string email1 = "drew@fakeemail.com";
+  string name1 = "Craig";
+  string address1 = "300 Lain Street";
+  string phone1 = "(211)909-7877";
+  string email1 = "craig@fakeemail.com";
   bool expected_result1 = true;
 
   // add_contact() will be called with this the 2nd time:
-  string name2 = "Alice";
-  string address2 = "123 Main Street";
-  string phone2 = "(123)456-7890";
-  string email2 = "alice@fakeemail.com";
-  bool expected_result2 = false;
+  string name2 = "Elon";
+  string address2 = "120 Science Street";
+  string phone2 = "(120)909-5655";
+  string email2 = "tesla@fakeemali.com";
+  bool expected_result2 = true;
 
   // add_contact() will be called with this the 3rd time:
-  string name3 = "Drew";
-  string address3 = "999 Lucky Street";
-  string phone3 = "(444)444-4444";
-  string email3 = "drew@fakeemail.com";
+  string name3 = "Craig";
+  string address3 = "303 Nowhere Raod";
+  string phone3 = "(999)000-9900";
+  string email3 = "craigg@fakeemail.com";
   bool expected_result3 = false;
 
   // If you want to add additional calls to add_contact(), declare variables
   // with similar names here. Follow the same pattern.
 
+  // TODO: Fill this out with the expected final state of the contacts list.
   vector<vector<string>> expected_contacts = {
-      {"Alice", "123 Main Street", "(123)456-7890", "alice@fakeemail.com"},
-      {"Bob", "1111 Blahblahblah Road", "(999)999-9999", "bob@fakeemail.com"},
-      {"Carly", "999 University Ave", "(200)300-4000", "carly@fakeemail.com"},
-      {"Drew", "888 Lucky Street", "(444)444-4444", "drew@fakeemail.com"},
+      {"Alex", "400 Serial Street", "(232)131-1331", "alex@fakeemail.com"},
+      {"Bryan", "923 Rare Road", "(949)787-1414", "bryan@fakeemail.com"},
+      {"Craig", "300 Lain Street", "(211)909-7877", "craig@fakeemail.com"},
+      {"Elon", "120 Science Street", "(120)909-5655", "tesla@fakeemali.com"},
   };
 
-  // Do not edit anything after this unless you added more tests
+  // Do not edit anything after this unless you added more tests.
   // If you added more tests, add additional GENERATE_ADD_CONTACT_TEST(n);
   // lines below the existing ones. There should be the same number of
   // these lines as function calls and they should all be numbered in order.
@@ -127,21 +134,24 @@ TEST(ContactsTest, AddContactTest) {
 }
 
 TEST(ContactsTest, DeleteContactTest) {
+  // TODO: Fill this out with a starting state for the contacts list.
   vector<vector<string>> contacts = {
-      {"Alice", "123 Main Street", "(123)456-7890", "alice@fakeemail.com"},
-      {"Bob", "1111 Blahblahblah Road", "(999)999-9999", "bob@fakeemail.com"},
-      {"Carly", "999 University Ave", "(200)300-4000", "carly@fakeemail.com"},
-      {"Drew", "888 Lucky Street", "(444)444-4444", "drew@fakeemail.com"},
+      {"Alice", "444 Lain Street", "(123)456-888", "aliceWorld@fakeemail.com"},
+      {"Charlie", "444 Blank Road", "(979)979-9779", "Charile@fakeemail.com"},
+      {"Elon", "999 Elm Street", "(898)678-1238", "Elon@fakeemail.com"},
+      {"Frank", "899 Helm Street", "(343)434-9000", "Franky@fakeemail.com"},
+      {"Hunter", "000 Rare Road", "(999)999-9999", "Hunter@fakeemail.com"},
   };
 
+  // TODO: Make at least 3 calls to delete_contact().
   delete_contact(contacts, "Alice");
-  delete_contact(contacts, "Eric");
-  delete_contact(contacts, "Alice");
+  delete_contact(contacts, "Frank");
+  delete_contact(contacts, "Hunter");
 
+  // TODO: Fill this out with the expected final state of the contacts list.
   vector<vector<string>> expected_contacts = {
-      {"Bob", "1111 Blahblahblah Road", "(999)999-9999", "bob@fakeemail.com"},
-      {"Carly", "999 University Ave", "(200)300-4000", "carly@fakeemail.com"},
-      {"Drew", "888 Lucky Street", "(444)444-4444", "drew@fakeemail.com"},
+      {"Charlie", "444 Blank Road", "(979)979-9779", "Charile@fakeemail.com"},
+      {"Elon", "999 Elm Street", "(898)678-1238", "Elon@fakeemail.com"},
   };
 
   // Do not change this code
@@ -149,46 +159,49 @@ TEST(ContactsTest, DeleteContactTest) {
 }
 
 TEST(ContactsTest, AddContactSortedTest) {
+  // TODO: Fill this out with a starting state for the contacts list.
   vector<vector<string>> contacts = {
-      {"Alice", "123 Main Street", "(123)456-7890", "alice@fakeemail.com"},
-      {"Bob", "1111 Blahblahblah Road", "(999)999-9999", "bob@fakeemail.com"},
-      {"Drew", "888 Lucky Street", "(444)444-4444", "drew@fakeemail.com"},
+      {"Alice", "444 Lain Street", "(123)456-888", "aliceWorld@fakeemail.com"},
+      {"Elon", "999 Elm Street", "(898)678-1238", "Elon@fakeemail.com"},
+      {"Hunter", "000 Rare Road", "(999)999-9999", "Hunter@fakeemail.com"},
   };
 
+  // TODO: Fill these.
   // add_contact_sorted() will be called with this the 1st time:
-  string name1 = "Carly";
-  string address1 = "999 University Ave";
-  string phone1 = "(200)300-4000";
-  string email1 = "carly@fakeemail.com";
+  string name1 = "Bryan";
+  string address1 = "900 Lain Road";
+  string phone1 = "(989)009-7877";
+  string email1 = "bryan@fakeemail.com";
   bool expected_result1 = true;
 
   // add_contact() will be called with this the 2nd time:
-  string name2 = "Carly";
-  string address2 = "888 University Ave";
-  string phone2 = "(200)300-4000";
-  string email2 = "carly@fakeemail.com";
-  bool expected_result2 = false;
+  string name2 = "Craig";
+  string address2 = "000 Berserk Road";
+  string phone2 = "(090)000-8789";
+  string email2 = "craig88@gmail.com";
+  bool expected_result2 = true;
 
   // add_contact() will be called with this the 3rd time:
-  string name3 = "Ahilan";
-  string address3 = "999 Grand Boulevard";
-  string phone3 = "(987)654-3210";
-  string email3 = "ahilan@fakeemail.com";
+  string name3 = "Izaak";
+  string address3 = "909 Main Street";
+  string phone3 = "(949)909-9900";
+  string email3 = "izaak@fakeemail.com";
   bool expected_result3 = true;
 
   // If you want to add additional calls to add_contact(), declare variables
   // with similar names here. Follow the same pattern.
 
+  // TODO: Fill this out with the expected final state of the contacts list.
   vector<vector<string>> expected_contacts = {
-      {"Ahilan", "999 Grand Boulevard", "(987)654-3210",
-       "ahilan@fakeemail.com"},
-      {"Alice", "123 Main Street", "(123)456-7890", "alice@fakeemail.com"},
-      {"Bob", "1111 Blahblahblah Road", "(999)999-9999", "bob@fakeemail.com"},
-      {"Carly", "999 University Ave", "(200)300-4000", "carly@fakeemail.com"},
-      {"Drew", "888 Lucky Street", "(444)444-4444", "drew@fakeemail.com"},
+      {"Alice", "444 Lain Street", "(123)456-888", "aliceWorld@fakeemail.com"},
+      {"Bryan", "900 Lain Road", "(989)009-7877", "bryan@fakeemail.com"},
+      {"Craig", "000 Berserk Road", "(090)000-8789", "craig88@gmail.com"},
+      {"Elon", "999 Elm Street", "(898)678-1238", "Elon@fakeemail.com"},
+      {"Hunter", "000 Rare Road", "(999)999-9999", "Hunter@fakeemail.com"},
+      {"Izaak", "909 Main Street", "(949)909-9900", "izaak@fakeemail.com"},
   };
 
-  // Do not edit anything after this unless you added more tests
+  // Do not edit anything after this unless you added more tests.
   // If you added more tests, add additional GENERATE_ADD_CONTACT_TEST(n);
   // lines below the existing ones. There should be the same number of
   // these lines as function calls and they should all be numbered in order.
